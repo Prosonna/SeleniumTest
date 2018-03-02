@@ -23,7 +23,7 @@ namespace SeleniumFirst
         public void Initialize()
         {
             //Navigate to google page
-            driver.Navigate().GoToUrl("http://www.google.com");
+            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
             Console.WriteLine("Opened URL");
 
         }
@@ -31,15 +31,43 @@ namespace SeleniumFirst
         [Test]
         public void ExecuteTest()
         {
-            //Find the element
-            IWebElement element = driver.FindElement(By.Name("q"));
+            /*          //EnterText(element, value, type);
 
-            //Perform Ops
-            element.SendKeys("Execute Automation");
+                        //Find the element
+                        IWebElement element = driver.FindElement(By.Name("q"));
 
-            Console.WriteLine("Executed Test");
-        
+                        //Perform Ops
+                        element.SendKeys("Execute Automation");
 
+                        Console.WriteLine("Executed Test");
+             */
+
+            //Title
+            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
+
+            //Initial
+            SeleniumSetMethods.EnterText(driver, "Initial", "P.H.N.", "Id");
+
+
+            //Console.WriteLine("The value from my title is:" + SeleniumGetMethods.GetText(driver, "TitleId", "Id"));
+
+            Console.WriteLine("The value from my initial is: " + SeleniumGetMethods.GetText(driver, "Initial", "Id"));
+
+            //First Name
+            //SeleniumSetMethods.EnterText(driver, "FirstName", "Prosonna", "name");
+
+            //Middle Name
+            //SeleniumSetMethods.EnterText(driver, "MiddleName", "Hossain", "name");
+
+            //Gender
+            //SeleniumSetMethods.Click(driver, "Male", "name");
+
+            //Languages Known
+            //SeleniumSetMethods.Click(driver, "english", "name");
+
+            //Click
+            SeleniumSetMethods.Click(driver, "Save", "name");
+            
         }
 
         [Test]
@@ -52,9 +80,9 @@ namespace SeleniumFirst
         [TearDown]
         public void CleanUp()
         {
-            driver.Close();
+            //driver.Close();
 
-            Console.WriteLine("Close the browser");
+            //Console.WriteLine("Close the browser");
         }
     }
 }
